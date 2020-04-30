@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-md-12">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Select state</button>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown_list">
+                          <button ngbDropdownItem *ngFor="let state of allStates" (click)="cityFromState(state)">
+                             {{state}}</button>
+                        </div>
+                </div>
+        </div>
+    </div>
+    <div class="row table_block" *ngIf="showCities && !boolPreloader">
+            <div class="col-lg-6 cities_column">
+                <ul>
+                    <li *ngFor="let state of selectedState">
+                       <a href="javascript:void(0)" (click)= markCity(state)>{{state.City}}</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="col-lg-6">
+                <agm-map [latitude]="showAll?latitdeState:latCity" 
+                  [longitude]='showAll?longitudeState:longCity'>
+                    <ng-container *ngIf= "showAll">
+                            <agm-marker  *ngFor="let data of arrOfLatAndLong; let i = index" 
+                            [latitude]="data.latitude" 
+                            [longitude]="data.longitude"
+                            [label]="{color: 'white', text: data.label}"></agm-marker>
+                    </ng-container>
+                    <ng-container *ngIf= "!showAll">
+                            <agm-marker
+                            [latitude]="latCity" 
+                            [longitude]="longCity"
+                            [label]="{color: 'white', text: cityLabel}"></agm-marker>
+                    </ng-container>
+                    
+                    
+                </agm-map>
+
+            </div>
+        </div>
+        <div class="mt-5">
+        <app-preloader [show]= "boolPreloader"></app-preloader>
+    </div>
+</div>
+ 

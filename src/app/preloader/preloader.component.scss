@@ -1,0 +1,26 @@
+.preloader {
+    //margin-top: 60px;
+    //@include animate(example, 4s, 0, infinite);
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count:infinite;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
+    //font-size: 16px;
+    i {
+      line-height: 50px;
+    }
+  }
+  
+  /* Safari 4.0 - 8.0 */
+  @-webkit-keyframes example {
+    0%   {color: black; }
+    100% {color: lightgray; }
+  }
+  
+  /* Standard syntax */
+  @keyframes example {
+    0%   {color: black; }
+    100% {color: lightgray; }
+  }

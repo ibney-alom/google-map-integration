@@ -1,0 +1,19 @@
+
+
+.dropdown-menu.show {
+    display: block;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.table_block{
+    margin-left: 40px;
+    margin-top: 40px;
+    .cities_column{
+        height: 500px;
+        overflow-y: scroll
+    }
+}
+agm-map{
+    height: 500px
+}
